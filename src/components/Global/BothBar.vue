@@ -1,7 +1,7 @@
 <template>
     <div id="bothBar">
-        <div class="bothBar-wrapper" :class=[{deem:deemShow}] :style="bothBarWrapperStyle" @touchstart="touchStart" @touchmove="touchMoved" @touchend="touchEnd">
-            <div class="bothBar-thumn" ></div>
+        <div class="bothBar-wrapper" :class=[{deem:deemShow}] :style="bothBarWrapperStyle">
+            <div class="bothBar-thumn" @touchstart="touchStart" @touchmove="touchMoved" @touchend="touchEnd" ></div>
             <div class="bothBar-content">
                 <slot name="content">
                 </slot>
@@ -10,13 +10,25 @@
     </div>
 </template>
 <script setup>
-    import { ref,computed } from 'vue'
-    const points = ref({s:-1,e:-1,h:100,min:100,cuh:100});
+    import { ref,computed,defineProps } from 'vue'
+
+    const props = defineProps({
+        maxHeightDiffer : {
+            type : Number,
+            default : ()=>{
+                return 70
+            }
+        }
+    })
+
+    const points = ref({s:-1,e:-1,h:163,min:0,cuh:0});
     const toutchTargetChecked = ref(false);
     const swiperChecked = ref({time:null,arr:[],type:null,first:null});
-    const minHeight = 100;
-    const maxHeight = window.innerHeight - 100;
+    const minHeight = 163;
+    const maxHeight = window.innerHeight - props.maxHeightDiffer;
     const deemShow = ref(false);
+
+
     let animationTimer = null;
     const targetChecked = (target)=>{
         const etcParentClass = ['.step-box'];
@@ -140,7 +152,7 @@
             if(s < e){
                 priceHeight = (points.value.h + step >= e) ? e : points.value.h + step
             }else{
-                priceHeight = (points.value.h + step <= e) ? e : points.value.h - step
+                priceHeight = (points.value.h - step <= e) ? e : points.value.h - step
             }
             points.value.h = priceHeight;
             if((priceHeight >= e && s < e) || (priceHeight <= e && s > e)){
@@ -158,19 +170,20 @@
 <style type="scss" scoped>
     #bothBar{
         position:relative;
-        height:100rem;
-        background:gray;
+        height:150rem;
+        background:transparent;
     }
     .bothBar-wrapper{
         position:absolute;
         bottom:0;
         left:0;
         right:0;
-        max-height:calc(100vh - 100rem);
-        min-height:100rem;
+        max-height:calc(100vh - 70rem);
+        /* min-height:100rem; */
         display:flex;
         flex-direction:column;
         overflow:hidden;
+        border-radius:18rem 18rem 0 0;
         background:#fff;
         &.deem{
             &:after{
@@ -186,24 +199,24 @@
     }
     .bothBar-thumn{
         position:relative;
-        height:20rem;
+        height:42rem;
         /* background:#000; */
         &:after{
             content:"";
             position:absolute;
-            top:50%;
+            top:7rem;
             left:50%;
             z-index:100;
-            width:60rem;
+            width:40rem;
             height:5rem;
             border-radius:5rem;
-            transform:translate(-50%,-50%);
+            transform:translate(-50%,0);
             background:#ededed;
         }
     }
     .bothBar-content{
         flex:1;
-        padding:0 20rem 20rem 20rem;
+        padding:0;
         overflow:auto;
     }
     .bothBar-deem{

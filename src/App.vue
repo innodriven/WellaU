@@ -12,12 +12,13 @@
       @groupClicEv2="groupClicEv2"
       @maxInputEvent="maxInputEvent"
       @titleClick="titleClick"
+      @selectClick="selectClick"
     >
       <template #title>
         {{ headerText }}
       </template>  
     </Header-vue>
-    <lnbVue v-model:open="lnbOpen" />
+    <lnbVue v-model:open="lnbOpen" :profile="profile" />
     <div id="content" :page="pageStatus">
       <router-view />
     </div>
@@ -68,6 +69,7 @@ export default {
         maxlength : 20,
         backShow : false,
         rightBtnText : "계속하기",
+        groupMain : "",
       },
       headerText : "",
       modalShow : false,
@@ -120,6 +122,15 @@ export default {
         },
       ],
       lnbOpen : false,
+      profile : {
+          name : "홍길동",
+          img : {
+              // src : require('@img/dummy-profile01.jpeg'),
+              // alt : '홍길동님의 프로필 사진입니다'
+              src : null,
+              alt : null
+          }
+      }
     }
   },
   created(){},
@@ -170,12 +181,25 @@ export default {
         this.modalShow = true;
       }
     },
+    // type5 일때 그룹명 클릭 시 이벤트
+    selectClick(){
+      const path = this.$route.path 
+      console.log("path : ",path)
+      if(path === '/groupMain'){
+        console.log("this.modalShow : ",this.modalShow)
+        this.modalShow = true;
+      }
+    },
     handleChange(sel){
       console.log("sel : ",sel)
       this.headerData.type = sel;
     },
     checkePath(path){
       switch (path){
+        case "accessRight" :
+          this.headerData.type = "type6";
+          this.headerText = null;
+          break;
         case "batteryOff" :
           this.headerData.type = "type6";
           this.headerText = "";
@@ -186,7 +210,7 @@ export default {
           break;
         case "conditionsUse" :
           this.headerData.type = "type1";
-          this.headerText = "이용약관";
+          this.headerText = "";
           break;
         case "openSauceLicenses" :
           this.headerData.type = "type1";
@@ -324,6 +348,7 @@ export default {
           this.headerText = "";
           break;
         case "groupMain" :
+          this.headerData.groupText = "그룹1";
           this.headerData.type = "type5";
           this.headerText = "그룹1";
           break;
@@ -337,7 +362,7 @@ export default {
     listSelectBoxListClick(){
       console.log("this.listSelectBoxValue : ",this.listSelectBoxValue)
       const checkedList = this.listSelectBoxList.find((l)=>l.value === this.listSelectBoxValue);
-      this.headerText = checkedList.value
+      this.headerData.groupText = checkedList.value
       console.log("checkedList : ",checkedList)
       this.modalShow = false;
     },
