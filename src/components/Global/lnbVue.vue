@@ -162,11 +162,14 @@
         align-items:center;
         justify-content:center;
         height:45rem;
+        margin:0 0 18rem 0;
         font-size: 17rem;
         font-style: normal;
         font-weight: 400;
         line-height: 140%; /* 23.8rem */
         color:#000;
+        border-bottom:1rem solid #EAEAEA;
+
     }
     .lnb-profile{
         display:flex;
@@ -209,7 +212,7 @@
             }
         }
         &> .r{
-            width:95rem;
+            width:100rem;
         }
     }
     .profile-edit-btn{
@@ -230,6 +233,9 @@
         &> .arrow{
             position:relative;
             top:3rem;
+            &> svg{
+                margin-left:5rem;
+            }
         }
     }
     .lnb-clse-btn{
@@ -245,11 +251,11 @@
         overflow:auto;
         padding:20rem;
         &> .lnb-menu-top{
-            padding:0 20rem 30rem;
+            padding:0 0 30rem;
             border-bottom:1rem solid #ededed;
         }
         &> .lnb-menu-both{
-            padding:10rem 20rem 10rem;
+            padding:10rem 0 10rem;
             border-bottom:1rem solid #ededed;
         }
         .menu{

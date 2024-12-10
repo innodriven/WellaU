@@ -54,8 +54,8 @@
                 </tr>
             </tbody>
         </table>
-        <div class="top" v-if="false">버전 : v1.15, 총 페이지 : {{pageList.length}} 완료 : {{success}} 진행율 : {{(success / (pageList.length * 0.01)).toFixed(1)}}%</div>
-        <table cellspacing="0" cellapdding="0" v-if="false">
+        <div class="top" v-if="true">버전 : v1.15, 총 페이지 : {{pageList.length}} 완료 : {{success}} 진행율 : {{(success / (pageList.length * 0.01)).toFixed(1)}}%</div>
+        <table cellspacing="0" cellapdding="0" v-if="true">
             <colgroup>
                 <col style="width:20%" />
                 <col style="width:20%" />

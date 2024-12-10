@@ -1,6 +1,7 @@
 <template>
     <div class="timeCircleBox" @click="click">
         <canvas id="myCanvas" height="220" width="220" ref="canvas" style="transform:rotate(-90deg);"></canvas>
+        <div class="num">{{props.num}}</div>
         <p>{{props.infoText}}</p>
     </div>
 </template>
@@ -111,14 +112,14 @@
             ctx.fill();
             ctx.closePath();
 
-            ctx.moveTo(0,0)
-            ctx.rotate(90 * Math.PI / 180);
-            ctx.beginPath();
-            ctx.font="bold 100rem Noto Sans KR"
-            ctx.textAlign = "center"
-            ctx.fillStyle = "#fff"
-            ctx.fillText(props.num,((canvas.value.width / 2)) - 3,((canvas.value.width / 2) * -1) + 38);
-            ctx.setTransform(1,0,0,1,0,0);
+            // ctx.moveTo(0,0)
+            // ctx.rotate(90 * Math.PI / 180);
+            // ctx.beginPath();
+            // ctx.font="bold 100rem Noto Sans KR"
+            // ctx.textAlign = "center"
+            // ctx.fillStyle = "#fff"
+            // ctx.fillText(props.num,((canvas.value.width / 2)) - 3,((canvas.value.width / 2) * -1) + 38);
+            // ctx.setTransform(1,0,0,1,0,0);
         }
 
     }
@@ -150,13 +151,29 @@
         position:relative;
         &> p{
             position:absolute;
-            bottom:25rem;
+            bottom:35rem;
             left:50%;
             transform:translate(-50%,0);
             font-size: 15rem;
             font-style: normal;
             font-weight: 600;
             line-height: 1;
+            color:#fff;
+        }
+        &> .num{
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:20rem;
+            left:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-family: "Roboto";
+            font-size: 92rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
             color:#fff;
         }
     }

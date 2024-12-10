@@ -20,15 +20,4 @@
 <script setup>
     import CounterBox from '@components/CounterBox'
 </script>
-<style type="scss" scoped>
-    .shareCodeInfoBox{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        flex-direction:column;
-        margin:0 auto;
-    }
-    .btn-set{
-        margin-top:30rem;
-    }
-</style>
+<style type="scss" scoped></style>

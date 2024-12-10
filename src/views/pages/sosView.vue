@@ -11,6 +11,7 @@
                     <div class="counter-circle">
                         <TimeCircle :num="num" :time="time" @timeout="timeout" :infoText="infoText" ref="timer" @click="clickStop" />
                     </div>
+                     <!-- <a-progress type="circle" :percent="75" :size="200" trailColor="rgba(255,255,255,0.15)" strokeColor="#fff" /> -->
                     <!-- <div class="circle-number-box-info">
                         숫자를 탭하면 즉시 전송됩니다.
                     </div> -->

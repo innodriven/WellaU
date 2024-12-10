@@ -183,9 +183,10 @@ body{
     font-weight: 600;
     line-height: 24rem; /* 150% */   
     padding:0 0 9rem 0;
+    margin:0 0 10rem 0;
     border-bottom:1rem solid #DCDDDF;
     &+ .list-input-box{
-        margin-top:10rem;
+        margin-top:20rem;
     }
 }
 
@@ -285,6 +286,7 @@ body{
         &> li{
             padding:16rem 0;
             border-bottom:1rem solid #E0E0E0;
+            background:url(../img/checkboxlist-arror.svg) no-repeat center right;
         }
     }
     &+ .btn-set{
@@ -510,7 +512,7 @@ table.guide-table{
     height:48rem;
     font-size: 15rem;
     font-style: normal;
-    font-weight: 600;
+    font-weight: normal;
     line-height: 1;
     color:#333;
     background:#F6F6F6;
@@ -1048,6 +1050,7 @@ table.guide-table{
     justify-content:center;
     align-items:center;
     padding:25rem 0;
+    margin:13rem 0 0;
     border-radius:8rem;
     background:#F7F7F5;
     &> .photo{
@@ -1159,7 +1162,7 @@ table.guide-table{
         margin-top:10rem;
     }
     &+ .title-both-line{
-        margin-top:45rem;
+        margin-top:40rem;
     }
 }
 .link-box-area-arrow > .tit{
