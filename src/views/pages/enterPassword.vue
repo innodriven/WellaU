@@ -8,7 +8,7 @@
 
                 <p  class="content-text-info">{{infoText}}</p>
                 <a-input v-model:value="textFieldPhone" class="wellau-input" placeholder="휴대폰 번호" />
-                <a-input-password v-model:value="textFieldPw" class="wellau-input" disabled placeholder="비밀번호" />
+                <a-input-password v-model:value="textFieldPw" class="wellau-input" placeholder="비밀번호" />
                 <div class="btn-set">
                     <a-button type="primary" class="wellau-btn" :disabled="disabled" @click="nextPage">계속하기</a-button>
                 </div>
