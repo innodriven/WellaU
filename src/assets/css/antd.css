@@ -20,7 +20,7 @@
 .wellau-input.ant-input[type = text]::placeholder,
 .wellau-input.ant-input-affix-wrapper >input.ant-input::placeholder{
     color:#ACB3BD;
-    font-weight:bold;
+    font-weight:600;
 }
 .wellau-input.ant-input[type = text]:hover,.wellau-input.ant-input[type = text]:focus,
 .wellau-input.ant-input-affix-wrapper.ant-input-password.ant-input-affix-wrapper-focused
@@ -41,6 +41,11 @@
 
 .wellau-input.ant-input-affix-wrapper >input.ant-input{
     height:25rem;
+}
+
+
+.wellau-input.ant-input-affix-wrapper-disabled.ant-input-password{
+    opacity:0.4;
 }
 
 /* clear */
@@ -235,6 +240,10 @@
     border: 1rem solid #BDBDBD;
 }
 
+.ant-btn.wellau-btn:disabled{
+    opacity:0.4;
+}
+
 /* button primary */
 .wellau-btn.ant-btn.ant-btn.ant-btn-primary{
     font-weight: 700;
@@ -308,7 +317,8 @@
     border-width:0 0 1rem 0;
     border-color:#bdbdbd !important;
     border-radius:0;
-    font-size: 17px;
+    font-family:"Noto Sans KR", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 23.8px */
@@ -322,9 +332,22 @@
     display:flex;
     align-items:center;
     line-height:1;
+    color:#333;
 }
 
+.ant-select-single.wellau-select .ant-select-selector .ant-select-selection-placeholder{
+    color:#ACB3BD;
+    font-weight:bold;
+}
 
+.ant-select.wellau-select:not(.ant-select-customize-input).wellau-select .ant-select-selector{
+    /* opacity:0.7; */
+    background-color:transparent;
+}
+
+.ant-select.wellau-select.ant-select-disabled .ant-select-selector .ant-select-selection-placeholder{
+    opacity:0.4;
+}
 
 
 
@@ -404,7 +427,7 @@
 
 /* modal */
 .wellau-modal.ant-modal .ant-modal-content{
-    padding:20rem;
+    padding:25rem;
 }
 .wellau-modal.ant-modal .ant-modal-footer{
     margin-top:8rem;
