@@ -16,6 +16,8 @@ body{
     font-size:12rem;
     line-height:1;
     color:#000;
+    /* pointer-events:none; */
+    overflow:hidden;
 }
 #app{
     font-family:"Noto Sans KR", sans-serif;
@@ -1454,14 +1456,7 @@ table.guide-table{
 .color-blue{
     color:#076AEB
 }
-/* datepicker */
-.dp__menu.dp__menu_index.dp__theme_light, .dp__action_buttons .dp__action_select, .dp__action_buttons .dp__action_button, .dp--time-overlay-btn{
-    font-size:12rem;
-}
 
-.dp__time_col button{
-    font-size:12rem;
-}
 .dp__menu.dp__menu_index.dp__theme_light, .dp__action_buttons .dp__action_select, .dp__action_buttons .dp__action_button, .dp--time-overlay-btn{
     font-size:12rem;
 }
@@ -1473,7 +1468,7 @@ table.guide-table{
 .dp__input_wrap > input{
     height:50rem;
     border-width:0;
-    border-bottom:1rem solid #ededed;
+    border-bottom:1rem solid #dbdbdb;
     font-size:16rem;
     font-weight:bold;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper" :class="[{map:map}]">
+  <div class="app-wrapper" :class="[{map:map}]" @touchstart.stop @touchmove.stop @touchend.stop>
     <BackButton v-if="backBtnShow" />
     <!-- 241212 : 수정 -->
     <Header-vue v-if="haderShow"
@@ -34,6 +34,7 @@
 
 <script>
 import BackButton from './components/BackButton'
+import { disableBodyScroll } from 'body-scroll-lock';
 export default {
   name: 'App',
   props : {},
@@ -139,6 +140,16 @@ export default {
   created(){},
   mounted(){
     this.checkePath(this.pageStatus);
+    /* 241217 : 추가 */
+    const _body = document.querySElector("body");
+    const scrollPosition = window.pageYOffset;
+    disableBodyScroll(_body)
+     _body.style.overflow = 'hidden';
+     _body.style.pointerEvents = 'none';
+     _body.style.position = 'fixed';
+     _body.style.top = `-${scrollPosition}px`;
+     _body.style.left = '0';
+     _body.style.right= '0';
   },
   methods : {
     // Type2 : 계속하기 클릭 이벤트
