@@ -71,11 +71,7 @@
         }
     }
     const touchMoved = ($ev)=>{
-        if(toutchTargetChecked.value){
-            deemShow.value =  false;
-            return
-        }
-        deemShow.value =  true;
+        if(toutchTargetChecked.value) return;
         const touchPoint = $ev.targetTouches[0].pageY;
         const diff = points.value.s - touchPoint;
         const calc = points.value.cuh + diff;
@@ -138,10 +134,8 @@
     }
     const animation = (s,e)=>{
         if(!animationTimer) clearInterval(animationTimer);
-        if(s === e){
-            deemShow.value = false;
-            return;
-        }
+        if(s === e) return;
+        deemShow.value =  true;
         const interValTime = 10;
         const dis = (s > e) ? s - e : e - s;
         const maxDistance = window.innerHeight - 200;
